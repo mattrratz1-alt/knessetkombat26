@@ -19,9 +19,21 @@ import {
 
 const app = document.querySelector('#app')
 
+function publicUrl(relPath) {
+  const path = String(relPath || '').replace(/^\.\//, '')
+  const { origin, pathname } = window.location
+  let dir = pathname
+  if (dir.endsWith('/index.html')) dir = dir.slice(0, -'index.html'.length)
+  else if (!dir.endsWith('/')) dir += '/'
+  // Source-tree GitHub Pages keeps files under /public/; Vite dist flattens them to root.
+  const sourceTree = Boolean(document.querySelector('script[src*="src/main"]'))
+  const prefix = sourceTree && !path.startsWith('public/') ? 'public/' : ''
+  return origin + dir + prefix + path
+}
+
 document.documentElement.style.setProperty(
   '--arena-bg',
-  `url("${new URL('stages/arena.png', document.baseURI).href}")`,
+  `url("${publicUrl('stages/arena.png')}")`,
 )
 
 const state = {
@@ -133,7 +145,7 @@ function renderSelect() {
         <div class="pick-card">
           ${
             p1
-              ? `<img src="${p1.avatar}" alt="${p1.name}" /><div><h3>${p1.name}</h3><p>${p1.title}</p></div>`
+              ? `<img src="${publicUrl(p1.avatar)}" alt="${p1.name}" /><div><h3>${p1.name}</h3><p>${p1.title}</p></div>`
               : `<div><h3>P1</h3><p>Waiting…</p></div>`
           }
         </div>
@@ -141,7 +153,7 @@ function renderSelect() {
         <div class="pick-card">
           ${
             p2
-              ? `<img src="${p2.avatar}" alt="${p2.name}" /><div><h3>${p2.name}</h3><p>${p2.title}</p></div>`
+              ? `<img src="${publicUrl(p2.avatar)}" alt="${p2.name}" /><div><h3>${p2.name}</h3><p>${p2.title}</p></div>`
               : `<div><h3>${state.mode === 'cpu' ? 'CPU' : 'P2'}</h3><p>Waiting…</p></div>`
           }
         </div>
@@ -151,7 +163,7 @@ function renderSelect() {
         ${CHARACTERS.map(
           (c) => `
           <button class="char-tile ${state.p1Id === c.id ? 'selected-p1' : ''} ${state.p2Id === c.id ? 'selected-p2' : ''}" data-id="${c.id}" type="button">
-            <img src="${c.avatar}" alt="${c.name}" />
+            <img src="${publicUrl(c.avatar)}" alt="${c.name}" />
             <strong>${c.name}</strong>
             <span>${c.title}</span>
           </button>
@@ -291,7 +303,7 @@ function hudMarkup(side, character, health, right) {
   return `
     <div class="fighter-hud ${right ? 'right' : ''}">
       <div class="name-row">
-        <img class="hud-face" src="${character.avatar}" alt="" />
+        <img class="hud-face" src="${publicUrl(character.avatar)}" alt="" />
         <div class="name">${character.name}</div>
       </div>
       <div class="health-track">
@@ -428,15 +440,6 @@ function applyHit(side, move) {
   if (f.health[defSide] <= 0) {
     endRound(attackerChar)
   }
-}
-
-function publicUrl(relPath) {
-  const path = String(relPath || '').replace(/^\.\//, '')
-  const { origin, pathname } = window.location
-  let dir = pathname
-  if (dir.endsWith('/index.html')) dir = dir.slice(0, -'index.html'.length)
-  else if (!dir.endsWith('/')) dir += '/'
-  return origin + dir + path
 }
 
 function playFinalSmash(winner) {
