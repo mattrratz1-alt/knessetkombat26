@@ -1,8 +1,8 @@
 import './style.css'
-import { assetUrl } from './assets.js'
 import { createArena } from './arena.js'
 import {
   announceFinalSmash,
+  assetUrl,
   noteMusicToggleKey,
   playAttackWord,
   playClip,
