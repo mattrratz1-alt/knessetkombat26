@@ -2,11 +2,24 @@
 
 const audioCache = new Map()
 
+function resolvePublic(src) {
+  const path = String(src || '').replace(/^\.\//, '')
+  if (/^https?:\/\//i.test(path)) return path
+  const { origin, pathname } = window.location
+  let dir = pathname
+  if (dir.endsWith('/index.html')) dir = dir.slice(0, -'index.html'.length)
+  else if (!dir.endsWith('/')) dir += '/'
+  const sourceTree = Boolean(document.querySelector('script[src*="src/main"]'))
+  const prefix = sourceTree && !path.startsWith('public/') ? 'public/' : ''
+  return origin + dir + prefix + path
+}
+
 function getAudio(src) {
-  let a = audioCache.get(src)
+  const url = resolvePublic(src)
+  let a = audioCache.get(url)
   if (!a) {
-    a = new Audio(src)
-    audioCache.set(src, a)
+    a = new Audio(url)
+    audioCache.set(url, a)
   }
   return a
 }
