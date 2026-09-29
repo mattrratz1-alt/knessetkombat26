@@ -473,7 +473,7 @@ function buildFighter(character, loader, startX, facing) {
   headGroup.add(face)
 
   loader.load(
-  assetUrl(character.avatar),
+    character.avatar,
     (tex) => {
       tex.colorSpace = THREE.SRGBColorSpace
       faceMat.map = tex
