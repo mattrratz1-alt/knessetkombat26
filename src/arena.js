@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import { assetUrl } from './audio.js'
 
 const ARENA_MIN = -7.2
 const ARENA_MAX = 7.2
