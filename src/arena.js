@@ -1,5 +1,16 @@
 import * as THREE from 'three'
 
+function publicUrl(relPath) {
+  const path = String(relPath || '').replace(/^\.\//, '')
+  const { origin, pathname } = window.location
+  let dir = pathname
+  if (dir.endsWith('/index.html')) dir = dir.slice(0, -'index.html'.length)
+  else if (!dir.endsWith('/')) dir += '/'
+  const sourceTree = Boolean(document.querySelector('script[src*="src/main"]'))
+  const prefix = sourceTree && !path.startsWith('public/') ? 'public/' : ''
+  return origin + dir + prefix + path
+}
+
 const ARENA_MIN = -7.2
 const ARENA_MAX = 7.2
 const GROUND_Y = 0
@@ -473,7 +484,7 @@ function buildFighter(character, loader, startX, facing) {
   headGroup.add(face)
 
   loader.load(
-    character.avatar,
+    publicUrl(character.avatar),
     (tex) => {
       tex.colorSpace = THREE.SRGBColorSpace
       faceMat.map = tex
