@@ -1,25 +1,12 @@
 /** Universal BGM (Hava Nagila default) + per-character attack words + Final Smash announcer */
 
-/** Resolve public/ paths on GitHub Pages (handles missing trailing slash). */
-export function assetUrl(relPath) {
-  const path = String(relPath || '').replace(/^\.\//, '')
-  if (!path) return ''
-  if (/^https?:\/\//i.test(path)) return path
-  const { origin, pathname } = window.location
-  let dir = pathname
-  if (dir.endsWith('/index.html')) dir = dir.slice(0, -'index.html'.length)
-  else if (!dir.endsWith('/')) dir += '/'
-  return `${origin}${dir}${path}`
-}
-
 const audioCache = new Map()
 
 function getAudio(src) {
-  const url = assetUrl(src)
-  let a = audioCache.get(url)
+  let a = audioCache.get(src)
   if (!a) {
-    a = new Audio(url)
-    audioCache.set(url, a)
+    a = new Audio(src)
+    audioCache.set(src, a)
   }
   return a
 }
