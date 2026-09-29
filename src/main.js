@@ -1,4 +1,5 @@
 import './style.css'
+import { assetUrl } from './assets.js'
 import { createArena } from './arena.js'
 import {
   announceFinalSmash,
@@ -21,7 +22,7 @@ const app = document.querySelector('#app')
 
 document.documentElement.style.setProperty(
   '--arena-bg',
-  `url("${new URL('stages/arena.png', document.baseURI).href}")`,
+  `url("${assetUrl('stages/arena.png')}")`,
 )
 
 const state = {
@@ -133,7 +134,7 @@ function renderSelect() {
         <div class="pick-card">
           ${
             p1
-              ? `<img src="${p1.avatar}" alt="${p1.name}" /><div><h3>${p1.name}</h3><p>${p1.title}</p></div>`
+              ? `<img src="${assetUrl(p1.avatar)}" alt="${p1.name}" /><div><h3>${p1.name}</h3><p>${p1.title}</p></div>`
               : `<div><h3>P1</h3><p>Waiting…</p></div>`
           }
         </div>
@@ -141,7 +142,7 @@ function renderSelect() {
         <div class="pick-card">
           ${
             p2
-              ? `<img src="${p2.avatar}" alt="${p2.name}" /><div><h3>${p2.name}</h3><p>${p2.title}</p></div>`
+              ? `<img src="${assetUrl(p2.avatar)}" alt="${p2.name}" /><div><h3>${p2.name}</h3><p>${p2.title}</p></div>`
               : `<div><h3>${state.mode === 'cpu' ? 'CPU' : 'P2'}</h3><p>Waiting…</p></div>`
           }
         </div>
@@ -151,7 +152,7 @@ function renderSelect() {
         ${CHARACTERS.map(
           (c) => `
           <button class="char-tile ${state.p1Id === c.id ? 'selected-p1' : ''} ${state.p2Id === c.id ? 'selected-p2' : ''}" data-id="${c.id}" type="button">
-            <img src="${c.avatar}" alt="${c.name}" />
+            <img src="${assetUrl(c.avatar)}" alt="${c.name}" />
             <strong>${c.name}</strong>
             <span>${c.title}</span>
           </button>
@@ -291,7 +292,7 @@ function hudMarkup(side, character, health, right) {
   return `
     <div class="fighter-hud ${right ? 'right' : ''}">
       <div class="name-row">
-        <img class="hud-face" src="${character.avatar}" alt="" />
+        <img class="hud-face" src="${assetUrl(character.avatar)}" alt="" />
         <div class="name">${character.name}</div>
       </div>
       <div class="health-track">
@@ -443,6 +444,7 @@ function playFinalSmash(winner) {
     caption: 'Destroyed.',
     clip: winner.avatar,
   }
+  const clipSrc = assetUrl(fs.clip)
 
   const overlay = document.createElement('div')
   overlay.className = 'final-smash-overlay'
@@ -451,7 +453,7 @@ function playFinalSmash(winner) {
       <p class="fs-eyebrow">FINAL SMASH</p>
       <h2>${fs.name}</h2>
       <p class="fs-caption">${fs.caption}</p>
-      <video class="fs-video" src="${fs.clip}" autoplay playsinline></video>
+      <video class="fs-video" playsinline preload="auto"></video>
       <p class="fs-by">${winner.name} finishes the fight</p>
     </div>
   `
@@ -465,10 +467,31 @@ function playFinalSmash(winner) {
     overlay.remove()
     endRound(winner)
   }
-  video?.addEventListener('ended', finish)
+
+  if (video) {
+    video.src = clipSrc
+    video.muted = false
+    video.playsInline = true
+    // Explicit play — autoplay attribute alone often fails on Pages / mobile
+    const tryPlay = () => {
+      void video.play().catch(() => {
+        // Autoplay with sound blocked: mute and retry (still shows the cutscene)
+        video.muted = true
+        void video.play().catch(() => {})
+      })
+    }
+    video.addEventListener('loadeddata', tryPlay, { once: true })
+    video.addEventListener('ended', finish)
+    // Missing file / bad path: keep title card up until timeout (don't skip instantly)
+    video.addEventListener('error', () => {
+      const by = overlay.querySelector('.fs-by')
+      if (by) by.textContent = 'Clip missing — check public/finalsmashes on GitHub'
+    })
+    video.load()
+  }
+
   const t = setTimeout(finish, 6200)
   f.timers.push(t)
-  video?.addEventListener('error', finish)
 }
 
 function updateHud() {
