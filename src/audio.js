@@ -1,12 +1,15 @@
 /** Universal BGM (Hava Nagila default) + per-character attack words + Final Smash announcer */
 
+import { assetUrl } from './assets.js'
+
 const audioCache = new Map()
 
 function getAudio(src) {
-  let a = audioCache.get(src)
+  const url = assetUrl(src)
+  let a = audioCache.get(url)
   if (!a) {
-    a = new Audio(src)
-    audioCache.set(src, a)
+    a = new Audio(url)
+    audioCache.set(url, a)
   }
   return a
 }
