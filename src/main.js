@@ -1,4 +1,3 @@
-import './style.css'
 import { createArena } from './arena.js'
 import {
   announceFinalSmash,
