@@ -1,0 +1,284 @@
+{
+  "bibi": [
+    {
+      "file": "w00.mp3",
+      "start": 52.36,
+      "end": 52.92
+    },
+    {
+      "file": "w01.mp3",
+      "start": 53.44,
+      "end": 54.04
+    },
+    {
+      "file": "w02.mp3",
+      "start": 55.14,
+      "end": 55.6
+    },
+    {
+      "file": "w03.mp3",
+      "start": 55.72,
+      "end": 56.1
+    },
+    {
+      "file": "w04.mp3",
+      "start": 56.36,
+      "end": 56.68
+    },
+    {
+      "file": "w05.mp3",
+      "start": 52.2,
+      "end": 52.5
+    },
+    {
+      "file": "w06.mp3",
+      "start": 54.56,
+      "end": 54.84
+    }
+  ],
+  "gantz": [
+    {
+      "file": "w00.mp3",
+      "start": 78.18,
+      "end": 78.66
+    },
+    {
+      "file": "w01.mp3",
+      "start": 79.78,
+      "end": 80.18
+    },
+    {
+      "file": "w02.mp3",
+      "start": 80.22,
+      "end": 80.78
+    },
+    {
+      "file": "w03.mp3",
+      "start": 81.78,
+      "end": 82.34
+    },
+    {
+      "file": "w04.mp3",
+      "start": 83.92,
+      "end": 84.14
+    },
+    {
+      "file": "w05.mp3",
+      "start": 86.88,
+      "end": 87.24
+    },
+    {
+      "file": "w06.mp3",
+      "start": 87.5,
+      "end": 87.9
+    },
+    {
+      "file": "w07.mp3",
+      "start": 77.5,
+      "end": 77.78
+    },
+    {
+      "file": "w08.mp3",
+      "start": 84.08,
+      "end": 84.5
+    },
+    {
+      "file": "w09.mp3",
+      "start": 85.06,
+      "end": 85.4
+    }
+  ],
+  "lapid": [
+    {
+      "file": "w00.mp3",
+      "start": 9.5,
+      "end": 9.84
+    },
+    {
+      "file": "w01.mp3",
+      "start": 9.84,
+      "end": 10.22
+    },
+    {
+      "file": "w02.mp3",
+      "start": 10.22,
+      "end": 10.58
+    },
+    {
+      "file": "w03.mp3",
+      "start": 10.66,
+      "end": 11.06
+    },
+    {
+      "file": "w04.mp3",
+      "start": 11.06,
+      "end": 11.72
+    },
+    {
+      "file": "w05.mp3",
+      "start": 11.72,
+      "end": 12.52
+    },
+    {
+      "file": "w06.mp3",
+      "start": 12.52,
+      "end": 12.86
+    },
+    {
+      "file": "w07.mp3",
+      "start": 13.8,
+      "end": 14.64
+    },
+    {
+      "file": "w08.mp3",
+      "start": 14.64,
+      "end": 15.02
+    },
+    {
+      "file": "w09.mp3",
+      "start": 15.02,
+      "end": 15.48
+    }
+  ],
+  "bengvir": [
+    {
+      "file": "w00.mp3",
+      "start": 19.86,
+      "end": 20.46
+    },
+    {
+      "file": "w01.mp3",
+      "start": 20.46,
+      "end": 20.98
+    },
+    {
+      "file": "w02.mp3",
+      "start": 13.36,
+      "end": 13.86
+    },
+    {
+      "file": "w03.mp3",
+      "start": 23.6,
+      "end": 23.94
+    },
+    {
+      "file": "w04.mp3",
+      "start": 11.98,
+      "end": 12.46
+    },
+    {
+      "file": "w05.mp3",
+      "start": 5.36,
+      "end": 5.86
+    },
+    {
+      "file": "w06.mp3",
+      "start": 9.7,
+      "end": 10.06
+    },
+    {
+      "file": "w07.mp3",
+      "start": 14.6,
+      "end": 14.94
+    },
+    {
+      "file": "w08.mp3",
+      "start": 7.76,
+      "end": 8.36
+    },
+    {
+      "file": "w09.mp3",
+      "start": 0.2,
+      "end": 0.38
+    }
+  ],
+  "smotrich": [
+    {
+      "file": "w00.mp3",
+      "start": 0.0,
+      "end": 0.18
+    },
+    {
+      "file": "w01.mp3",
+      "start": 0.18,
+      "end": 0.36
+    },
+    {
+      "file": "w02.mp3",
+      "start": 0.46,
+      "end": 0.66
+    },
+    {
+      "file": "w03.mp3",
+      "start": 0.66,
+      "end": 1.1
+    },
+    {
+      "file": "w04.mp3",
+      "start": 1.1,
+      "end": 1.68
+    },
+    {
+      "file": "w05.mp3",
+      "start": 1.92,
+      "end": 2.1
+    },
+    {
+      "file": "w06.mp3",
+      "start": 2.24,
+      "end": 2.56
+    },
+    {
+      "file": "w07.mp3",
+      "start": 2.56,
+      "end": 3.02
+    },
+    {
+      "file": "w08.mp3",
+      "start": 3.14,
+      "end": 3.34
+    },
+    {
+      "file": "w09.mp3",
+      "start": 3.34,
+      "end": 3.62
+    }
+  ],
+  "lieberman": [
+    {
+      "file": "w00.mp3",
+      "start": 0.58,
+      "end": 1.0
+    },
+    {
+      "file": "w01.mp3",
+      "start": 1.72,
+      "end": 2.48
+    },
+    {
+      "file": "w02.mp3",
+      "start": 2.48,
+      "end": 3.1
+    },
+    {
+      "file": "w03.mp3",
+      "start": 3.26,
+      "end": 3.54
+    },
+    {
+      "file": "w04.mp3",
+      "start": 3.54,
+      "end": 3.94
+    },
+    {
+      "file": "w05.mp3",
+      "start": 3.94,
+      "end": 4.24
+    },
+    {
+      "file": "w06.mp3",
+      "start": 4.24,
+      "end": 4.92
+    }
+  ]
+}

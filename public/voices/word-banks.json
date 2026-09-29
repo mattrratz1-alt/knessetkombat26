@@ -1,0 +1,70 @@
+{
+  "bibi": [
+    "./voices/bibi/words/w00.mp3",
+    "./voices/bibi/words/w01.mp3",
+    "./voices/bibi/words/w02.mp3",
+    "./voices/bibi/words/w03.mp3",
+    "./voices/bibi/words/w04.mp3",
+    "./voices/bibi/words/w05.mp3",
+    "./voices/bibi/words/w06.mp3",
+    "./voices/bibi/words/w07.mp3"
+  ],
+  "gantz": [
+    "./voices/gantz/words/w00.mp3",
+    "./voices/gantz/words/w01.mp3",
+    "./voices/gantz/words/w02.mp3",
+    "./voices/gantz/words/w03.mp3",
+    "./voices/gantz/words/w04.mp3",
+    "./voices/gantz/words/w05.mp3",
+    "./voices/gantz/words/w06.mp3",
+    "./voices/gantz/words/w07.mp3",
+    "./voices/gantz/words/w08.mp3",
+    "./voices/gantz/words/w09.mp3"
+  ],
+  "lapid": [
+    "./voices/lapid/words/w00.mp3",
+    "./voices/lapid/words/w01.mp3",
+    "./voices/lapid/words/w02.mp3",
+    "./voices/lapid/words/w03.mp3",
+    "./voices/lapid/words/w04.mp3",
+    "./voices/lapid/words/w05.mp3",
+    "./voices/lapid/words/w06.mp3",
+    "./voices/lapid/words/w07.mp3",
+    "./voices/lapid/words/w08.mp3",
+    "./voices/lapid/words/w09.mp3"
+  ],
+  "bengvir": [
+    "./voices/bengvir/words/w00.mp3",
+    "./voices/bengvir/words/w01.mp3",
+    "./voices/bengvir/words/w02.mp3",
+    "./voices/bengvir/words/w03.mp3",
+    "./voices/bengvir/words/w04.mp3",
+    "./voices/bengvir/words/w05.mp3",
+    "./voices/bengvir/words/w06.mp3",
+    "./voices/bengvir/words/w07.mp3",
+    "./voices/bengvir/words/w08.mp3",
+    "./voices/bengvir/words/w09.mp3"
+  ],
+  "smotrich": [
+    "./voices/smotrich/words/w00.mp3",
+    "./voices/smotrich/words/w01.mp3",
+    "./voices/smotrich/words/w02.mp3",
+    "./voices/smotrich/words/w03.mp3",
+    "./voices/smotrich/words/w04.mp3",
+    "./voices/smotrich/words/w05.mp3",
+    "./voices/smotrich/words/w06.mp3",
+    "./voices/smotrich/words/w07.mp3",
+    "./voices/smotrich/words/w08.mp3",
+    "./voices/smotrich/words/w09.mp3"
+  ],
+  "lieberman": [
+    "./voices/lieberman/words/w00.mp3",
+    "./voices/lieberman/words/w01.mp3",
+    "./voices/lieberman/words/w02.mp3",
+    "./voices/lieberman/words/w03.mp3",
+    "./voices/lieberman/words/w04.mp3",
+    "./voices/lieberman/words/w05.mp3",
+    "./voices/lieberman/words/w06.mp3",
+    "./voices/lieberman/words/w07.mp3"
+  ]
+}
